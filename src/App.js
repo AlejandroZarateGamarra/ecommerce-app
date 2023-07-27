@@ -1,15 +1,21 @@
 import React from 'react';
+import { Switch, Route, Link } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import ItemListContainer from './components/ItemListContainer';
-import './App.css';
+import ItemDetailContainer from './components/ItemDetailContainer';
 
 const App = () => {
   return (
     <div>
       <NavBar />
-      <ItemListContainer greeting="¡Bienvenido a nuestra tienda!" />
+      <Switch>
+        <Route exact path="/" component={ItemListContainer} />
+        <Route path="/category/:id" component={ItemListContainer} />
+        <Route path="/item/:id" component={ItemDetailContainer} />
+      </Switch>
     </div>
   );
 };
 
 export default App;
+
